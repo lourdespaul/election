@@ -7,7 +7,7 @@ var router = express.Router();
 
 router.get('/spl', function(req, res, next) {
     Candidate.find({role:'SPL'}, function (err,result) {
-        res.render('vote',{title:'SPL', candidate:result});
+        res.render('vote',{title:'SPL', candidate:result, role:'spl'});
     });
 });
 
@@ -37,7 +37,7 @@ router.get('/spl/:id', function (req, res, next) {
 router.get('/aspl', function (req,res, next) {
    Candidate.find({role:'ASPL'}, function (err,result) {
        if(err) res.send(err);
-       if(result) res.render('vote',{title:'ASPL', candidate:result});
+       if(result) res.render('vote',{title:'ASPL', candidate:result, role:'aspl'});
    });
 });
 
@@ -74,7 +74,7 @@ router.get('/aspl/:id', function () {
 router.get('/headgirl', function (req,res, next) {
     Candidate.find({role:'HEADGIRL'}, function (err,result) {
         if(err) res.send(err);
-        if(result) res.render('vote',{title:'HEADGIRL', candidate:result});
+        if(result) res.render('vote',{title:'HEADGIRL', candidate:result, role:'headgirl'});
     });
 });
 
