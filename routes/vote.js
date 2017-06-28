@@ -46,7 +46,7 @@ router.get('/aspl/:id', function (req, res, next) {
     console.log(id);
     var user = req.user;
     console.log(user);
-    if(user.spl) {
+    if(user.aspl) {
         Candidate.findByIdAndUpdate(id, {$push: {vote: user._id}}, function (err, result) {
             if (err) console.log(err);
             if (result) {
@@ -83,7 +83,7 @@ router.get('/headgirl/:id', function (req, res, next) {
     console.log(id);
     var user = req.user;
     console.log(user);
-    if(user.spl) {
+    if(user.headgirl) {
         Candidate.findByIdAndUpdate(id, {$push: {vote: user._id}}, function (err, result) {
             if (err) console.log(err);
             if (result) {
