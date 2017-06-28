@@ -41,7 +41,7 @@ router.get('/aspl', function (req,res, next) {
    });
 });
 
-router.get('/aspl/:id', function () {
+router.get('/aspl/:id', function (req, res, next) {
     var id = req.params.id;
     console.log(id);
     var user = req.user;
@@ -78,7 +78,7 @@ router.get('/headgirl', function (req,res, next) {
     });
 });
 
-router.get('/headgirl/:id', function () {
+router.get('/headgirl/:id', function (req, res, next) {
     var id = req.params.id;
     console.log(id);
     var user = req.user;
