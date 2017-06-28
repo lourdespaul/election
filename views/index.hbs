@@ -1,0 +1,49 @@
+<div class="container">
+    <h1 align="center">MTMHSS</h1>
+    <div class="section">
+        <form action="" method="post">
+            <div class="input-field col s12">
+                <select name="std">
+                    <option value="" disabled selected>Choose your option</option>
+                    <option value="I">I</option>
+                    <option value="II">II</option>
+                    <option value="III">III</option>
+                    <option value="IV">IV</option>
+                    <option value="V">V</option>
+                    <option value="VI">VI</option>
+                    <option value="VII">VII</option>
+                    <option value="VIII">VIII</option>
+                    <option value="IX">IX</option>
+                    <option value="X">X</option>
+                    <option value="XI">XI</option>
+                    <option value="XII">XII</option>
+                </select>
+                <label>Select Standard</label>
+                <button class="btn-large" type="submit">Show</button>
+            </div>
+            <div class="section">
+                <table>
+                    <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Gender</th>
+                        <th>View</th>
+                    </tr>
+                    </thead>
+
+                    <tbody>
+                    {{#if students}}
+                        {{#each students}}
+                    <tr>
+                        <td>{{name}}</td>
+                        <td>{{gender}}</td>
+                        <td><i class="material-icons">view</i></td>
+                    </tr>
+                        {{/each}}
+                    {{/if}}
+                    </tbody>
+                </table>
+            </div>
+        </form>
+    </div>
+</div>

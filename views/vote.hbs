@@ -1,0 +1,18 @@
+<div class="section">
+    <div class="section"><h3 align="center">{{title}}</h3></div>
+    <div class="row">
+        {{#each candidate}}
+        <div class="col s12 m4">
+            <div class="card">
+                <div class="card-image">
+                    <img src="{{image}}">
+                    <span class="card-title">{{name}}</span>
+                </div>
+                <div class="card-content">
+                    <a href="/vote/spl/{{_id}}"><button class="btn-large">Vote</button></a>
+                </div>
+            </div>
+        </div>
+        {{/each}}
+    </div>
+</div>
