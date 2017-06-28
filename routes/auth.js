@@ -18,4 +18,9 @@ router.post('/login', passport.authenticate('local-login', {
     failureFlash : true // allow flash messages
 }));
 
+router.get('/logout', function (req, res) {
+    req.logout();
+    res.redirect('/login');
+});
+
 module.exports = router;

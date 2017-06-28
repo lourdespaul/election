@@ -7,11 +7,11 @@ var router = express.Router();
 
 router.get('/spl', function(req, res, next) {
     Candidate.find({role:'SPL'}, function (err,result) {
-        res.render('vote',{title:'SPL', candidate:result, role:'spl'});
+        res.render('vote',{title:'SPL', candidate:result});
     });
 });
 
-router.get('/spl/:id', function (req, res, next) {
+router.get('/SPL/:id', function (req, res, next) {
     var id = req.params.id;
     console.log(id);
     var user = req.user;
@@ -23,7 +23,7 @@ router.get('/spl/:id', function (req, res, next) {
                 user.update({$set:{spl:false}},function (err, result) {
                     if (err) throw err;
                     if(result){
-                        res.redirect('vote/aspl')
+                        res.redirect('/vote/aspl')
                     }
                 });
             }
@@ -37,11 +37,11 @@ router.get('/spl/:id', function (req, res, next) {
 router.get('/aspl', function (req,res, next) {
    Candidate.find({role:'ASPL'}, function (err,result) {
        if(err) res.send(err);
-       if(result) res.render('vote',{title:'ASPL', candidate:result, role:'aspl'});
+       if(result) res.render('vote',{title:'ASPL', candidate:result});
    });
 });
 
-router.get('/aspl/:id', function (req, res, next) {
+router.get('/ASPL/:id', function (req, res, next) {
     var id = req.params.id;
     console.log(id);
     var user = req.user;
@@ -54,7 +54,7 @@ router.get('/aspl/:id', function (req, res, next) {
                     if (err) throw err;
                     if(result){
                         if(user.gender == 'F')
-                            res.redirect('vote/headgirl');
+                            res.redirect('/vote/headgirl');
                         else
                             res.redirect('/logout');
                     }
@@ -64,7 +64,7 @@ router.get('/aspl/:id', function (req, res, next) {
     }
     else{
         if(user.gender == 'F')
-            res.redirect('vote/headgirl');
+            res.redirect('/vote/headgirl');
         else
             res.redirect('/logout');
         // res.redirect('/vote/headgirl')
@@ -74,11 +74,11 @@ router.get('/aspl/:id', function (req, res, next) {
 router.get('/headgirl', function (req,res, next) {
     Candidate.find({role:'HEADGIRL'}, function (err,result) {
         if(err) res.send(err);
-        if(result) res.render('vote',{title:'HEADGIRL', candidate:result, role:'headgirl'});
+        if(result) res.render('vote',{title:'HEADGIRL', candidate:result});
     });
 });
 
-router.get('/headgirl/:id', function (req, res, next) {
+router.get('/HEADGIRL/:id', function (req, res, next) {
     var id = req.params.id;
     console.log(id);
     var user = req.user;
@@ -96,6 +96,7 @@ router.get('/headgirl/:id', function (req, res, next) {
             }
         });
     }
+    else res.redirect('/logout')
 });
 
 
